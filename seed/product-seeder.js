@@ -6,13 +6,13 @@ mongoose.connect('localhost:27017/ei-jishopping');
 var products = [
     new Product({
         imagePath: 'http://media.moddb.com/images/articles/1/233/232591/15050686003a28e6e6df64dad07606fb.jpg',
-        title: 'Gothic (video game)',
+        title: 'Gothic',
         description: 'The new astonishing version Chronicles of Myrtana is finally out. The GothicTW Team wishes you a very nice experience with the new 2.1 version!',
         price: 250,
     }),
     new Product({
         imagePath: 'http://cache.gawkerassets.com/assets/images/9/2011/07/contrahead.jpg',
-        title: 'Title Screens',
+        title: 'The Contra',
         description: 'The Contra (Japanese: 魂斗羅 "Kontora") is a video game series produced by Konami composed primarily of run and gun-style shoot-em-up games. The first game in the series.',
         price: 310,
     }),

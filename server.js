@@ -9,11 +9,13 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var passport = require('passport');
 var flash = require('connect-flash');
+var validator = require('express-validator');
 var routes = require('./routes/index');
 var app = express();
 
 mongoose.connect('localhost:27017/ei-jishopping');
-console.log("mongoDB is running");
+
+require('./config/passport');
 
 // view engine setup
 app.engine('.hbs', expressHbs({
@@ -29,6 +31,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+app.use(validator());
 app.use(cookieParser());
 app.use(session({
   secret: 'mysupersecret',
