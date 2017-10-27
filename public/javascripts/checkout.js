@@ -1,4 +1,5 @@
-Stripe.setPublishableKey('pk_test_OG5gqu1eseQ9v3fsdgvM163o');
+Stripe.setPublishableKey('sk_test_MKryMB40n27BUpYoTTm4Grw4');
+//var stripe = Stripe('sk_test_MKryMB40n27BUpYoTTm4Grw4');
 var $form = $('checkout-form');
 
 $form.submit(function (event) {

@@ -4,6 +4,7 @@ var Cart = require('../models/cart');
 var Product = require('../models/product');
 
 router.get('/', function (req, res, next) {
+  var successMsg = req.flash('success')[0];
   Product.find(function (err, docs) {
     var productChunks = [];
     var chunkSize = 3;
@@ -12,7 +13,9 @@ router.get('/', function (req, res, next) {
     }
     res.render('shop/index', {
       title: 'Ei-Ji Games Shopping',
-      products: productChunks
+      products: productChunks,
+      successMsg: successMsg,
+      noMessage: !successMsg
     });
   });
 });
@@ -58,9 +61,38 @@ router.get('/checkout', function (req, res, next) {
     return res.redirect('/basket');
   }
   var cart = new Cart(req.session.cart);
+  var errMsg = req.flash('error')[0];
   res.render('shop/checkout', {
     title: 'Ei-Ji Games Shopping',
-    total: cart.totalPrice
+    total: cart.totalPrice,
+    errMsg: errMsg,
+    noErrors: !errMsg
+  });
+});
+
+router.post('/checkout', function (req, res, next) {
+  if (!req.session.cart) {
+    return res.redirect('/basket');
+  }
+  var cart = new Cart(req.session.cart);
+  var stripe = require("stripe")(
+    "sk_test_MKryMB40n27BUpYoTTm4Grw4"
+    //pk_test_OG5gqu1eseQ9v3fsdgvM163o
+  );
+  stripe.charges.create({
+    amount: cart.totalPrice * 100,
+    currency: "usd",
+    // source: req.body.stripeToken,
+    source: "tok_mastercard",
+    description: "Test Charge."
+  }, function (err, charge) {
+    if (err) {
+      req.flash('error', err.message);
+      return res.redirect('/checkout');
+    }
+    req.flash('success', 'Successfully bought product!');
+    req.session.cart = null;
+    res.redirect('/');
   });
 });
 
