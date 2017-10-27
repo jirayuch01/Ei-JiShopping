@@ -94,11 +94,11 @@ router.post('/checkout', isLoggedIn, function (req, res, next) {
       address: req.body.address,
       name: req.body.name,
       paymentId: charge.id,
-    }); 
+    });
     order.save(function (err, result) {
-          req.flash('success', 'Successfully bought product!');
-    req.session.cart = null;
-    res.redirect('/');
+      req.flash('success', 'Successfully bought product!');
+      req.session.cart = null;
+      res.redirect('/');
     });
   });
 });
@@ -107,7 +107,7 @@ module.exports = router;
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
-      return next();
+    return next();
   }
   req.session.oldUrl = req.url;
   res.redirect('/user/signin');

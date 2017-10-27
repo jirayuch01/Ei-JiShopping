@@ -3,9 +3,9 @@ var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
 var csrfProtection = csrf();
-var Cart = require('../models/cart');
-var Product = require('../models/product');
+
 var Order = require('../models/order');
+var Cart = require('../models/cart');
 
 router.use(csrfProtection);
 

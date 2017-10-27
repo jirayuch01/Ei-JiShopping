@@ -10,26 +10,33 @@
         <h2>
             <kbd class="logos">
                 <i class="fa fa-list-ul" aria-hidden="true"></i>
-            </kbd> My Orders list
-        </h2>
-
+            </kbd> My Orders list</h2>
+        {{# each orders }}
         <div class="panel panel-default">
-            <div class="panel-heading">Panel Heading</div>
+            <div class="panel-heading">
+                Payment by
+                <span class="label label-success">{{ this.name }}</span>
+                <strong class="qty">Total Price:
+                    <span class="label label-danger">{{ this.cart.totalPrice }}</span> bath.-</strong>
+            </div>
             <div class="panel-body">
                 <ul class="list-group">
-
+                    {{# each this.item }}
                     <li class="list-group-item">
-                        <span class="badge">555</span>
-                        Game | 2 pieces
+                        <span class="qty">
+                            <span class="badge">{{ this.price }}</span> bath.-</span>
+                        {{ this.item.title }} |
+                        <span class="label label-warning">{{ this.qty }}</span> pieces
                     </li>
-
+                    {{/each}}
                 </ul>
             </div>
             <div class="panel-footer">
-                <strong>Total Price:
-                    <span class="label label-danger">5555</span> bath.-</strong>
+                <span>Receipt:
+                    <span class="label label-primary">{{ this.paymentId }}</span>
+                </span>
             </div>
         </div>
-
+        {{/each}}
     </div>
 </div>
