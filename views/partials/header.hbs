@@ -1,5 +1,11 @@
-<div class="slide">
-  <kbd class="logos"><i class="fa fa-shopping-cart" aria-hidden="true"></i></kbd> Ei-Ji Shopping
+<div class="row">
+  <div class="slide">
+    {{!--
+    <kbd class="logos">
+      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    </kbd>
+    <i>Ei-Ji Games Shopping</i>&nbsp;--}}
+  </div>
 </div>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -12,46 +18,75 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">
-        <kbd class="logos"><i class="fa fa-shopping-cart" aria-hidden="true"></i></kbd> Ei-Ji Shopping</a>
+        <kbd class="logos">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </kbd> Ei-Ji Games Shopping</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        {{# if login }}
         <li>
           <a href="/basket/">
-            <kbd class="logos"><i class="fa fa-shopping-basket" aria-hidden="true"></i></kbd> Basket
+            <kbd class="logos">
+              <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+            </kbd> Basket
             <span class="badge">{{session.cart.totalQty}}</span>
           </a>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <kbd class="logos"><i class="fa fa-cog" aria-hidden="true"></i></kbd> User Management
+            <kbd class="logos">
+              <i class="fa fa-cog" aria-hidden="true"></i>
+            </kbd> Settings
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            {{# if login }}
             <li>
               <a href="/user/profile">
-                <kbd class="logos"><i class="fa fa-user" aria-hidden="true"></i></kbd> User Account</a>
+                <kbd class="logos">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </kbd> My Account</a>
             </li>
             <li role="separator" class="divider"></li>
             <li>
               <a href="/user/logout">
-                <kbd class="logos"><i class="fa fa-sign-out" aria-hidden="true"></i></kbd> Logout</a>
+                <kbd class="logos">
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+                </kbd> Logout</a>
             </li>
             {{ else }}
-            <li>
-              <a href="/user/signup">
-                <kbd class="logos"><i class="fa fa-user-plus" aria-hidden="true"></i></kbd> Sign up</a>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <kbd class="logos">
+                  <i class="fa fa-cog" aria-hidden="true"></i>
+                </kbd> New User
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="/user/signup">
+                    <kbd class="logos">
+                      <i class="fa fa-user-plus" aria-hidden="true"></i>
+                    </kbd> Sign up</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a href="/user/signin">
+                    <kbd class="logos">
+                      <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    </kbd>&nbsp; Sign in</a>
+                </li>
+                {{/if}}
+              </ul>
             </li>
-            <li role="separator" class="divider"></li>
             <li>
-              <a href="/user/signin">
-                <kbd class="logos"><i class="fa fa-sign-in" aria-hidden="true"></i></kbd>&nbsp; Sign in</a>
+              <a href="/contact/">
+                <kbd class="logos">
+                  <i class="fa fa-id-badge" aria-hidden="true"></i>
+                </kbd> Contact
+              </a>
             </li>
-            {{/if}}
           </ul>
-        </li>
-      </ul>
     </div>
   </div>
 </nav>

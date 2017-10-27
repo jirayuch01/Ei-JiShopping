@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+        <center>
+            <h1>
+                <kbd class="logos">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </kbd> Checkout</h1>
+
+            <p></p>
+            <h4>Your Total:
+                <span class="label label-danger">{{ total }}</span> bath.-</h4>
+        </center>
+        <hr class="style5">
+        <div id="charge-error" class="alert alert-danger hidden">
+        </div>
+        <form action="/checkout" method="post" id="checkout-form">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" required autofocus placeholder="Jenny Rosen">
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" class="form-control" required placeholder="USA">
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="card-name">Card Holder Name</label>
+                        <input type="text" id="card-name" class="form-control" required placeholder="Jenny Rosen">
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="card-number">Credit Card Number</label>
+                        <input type="text" id="card-number" class="form-control" required maxlength="16" placeholder="4242424242424242">
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label for="card-expiry-month">Expiration Month</label>
+                                <input type="text" id="card-expiry-month" class="form-control" required maxlength="2" placeholder="12"> 
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label for="card-expiry-year">Expiration Year</label>
+                                <input type="text" id="card-expiry-year" class="form-control" required maxlength="4" placeholder="2017">
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label for="card-cvc">CVC
+                                    <br>
+                                    <br>
+                                </label>
+                                <input type="text" id="card-cvc" class="form-control" required maxlength="3" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="form-control btn btn-success">
+                <i class="fa fa-credit-card" aria-hidden="true"></i> Buy now</button>
+        </form>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript" src="javascripts/checkout.js"></script>

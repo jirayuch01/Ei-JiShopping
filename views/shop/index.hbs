@@ -1,8 +1,4 @@
-<center id="myDIV">
-    <h1>{{title}}</h1>
-    <p>Welcome to the Web shopping</p>
-</center>
-<br> {{# each products }}
+{{# each products }}
 <div class="row">
     {{# each this }}
     <div class="col-sm-6 col-md-4">
@@ -16,8 +12,12 @@
                 <p class="description">{{ this.description }}</p>
                 <div class="clearfix">
                     <div class="price pull-left">
-                        <p></p>{{ this.price }} bath.-</div>
-                    <a href="/add-to-cart/{{ this._id }}" class="btn btn-success pull-right" role="button">Add to Basket</a>
+                        <p></p>
+                        <span class="label label-primary">{{ this.price }}</span>
+                        <span>bath.-</span>
+                    </div>
+                    <p></p>
+                    <a href="/add-to-cart/{{ this._id }}" class="btn btn-success pull-right btn-sm" role="button">Add to Basket</a>
                 </div>
             </div>
         </div>

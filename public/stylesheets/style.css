@@ -1,5 +1,6 @@
 body {
     background-color: wheat;
+    font-family: 'Mitr', sans-serif;
 }
 
 .thumbnail img {
@@ -116,9 +117,16 @@ body {
     text-align: center;
     vertical-align: middle;
     line-height: 300px;
-    color: #333333; font-family: 'Helvetica Neue', sans-serif; font-size: 8vw; font-weight: bold; letter-spacing: -1px;
+    color: #333333; 
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 8vw;
+    font-weight: bold; 
+    letter-spacing: -1px;
     flex-wrap: wrap;
     font-size: 80px;
+    color: blueviolet;
+    text-decoration: underline;
+    opacity: 1;
 }
 
 hr.style5 {
@@ -146,4 +154,21 @@ hr.style5 {
     text-align: center;
     background-color: lightblue;
     margin-top: 20px;
+}
+
+#scroll {
+    height:400px;
+    width:105%; 
+    overflow:scroll;
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
+
+.shadow {
+    -webkit-filter: drop-shadow(8px 8px 10px black);
+    filter: drop-shadow(8px 8px 10px black);
+    display: block;
+    margin: 0 auto;
+    width: 360px;
+    height: 360px;
 }

@@ -8,7 +8,7 @@ router.use(csrfProtection);
 
 router.get('/profile', isLoggedIn, function (req, res, next) {
     res.render('user/profile', {
-        title: 'Ei-Ji Shopping'
+        title: 'Ei-Ji Games Shopping'
     });
 });
 
@@ -24,7 +24,7 @@ router.use('/', notLoggedIn, function (req, res, next) {
 router.get('/signup', function (req, res, next) {
     var messages = req.flash('error');
     res.render('user/signup', {
-        title: 'Ei-Ji Shopping',
+        title: 'Ei-Ji Games Shopping',
         csrfToken: req.csrfToken(),
         messages: messages,
         hasErrors: messages.length > 0
@@ -40,7 +40,7 @@ router.post('/signup', passport.authenticate('local.signup', {
 router.get('/signin', function (req, res, next) {
     var messages = req.flash('error');
     res.render('user/signin', {
-        title: 'Ei-Ji Shopping',
+        title: 'Ei-Ji Games Shopping',
         csrfToken: req.csrfToken(),
         messages: messages,
         hasErrors: messages.length > 0
