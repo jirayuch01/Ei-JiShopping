@@ -3,12 +3,28 @@ var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
 var csrfProtection = csrf();
+var Cart = require('../models/cart');
+var Product = require('../models/product');
+var Order = require('../models/order');
 
 router.use(csrfProtection);
 
 router.get('/profile', isLoggedIn, function (req, res, next) {
-    res.render('user/profile', {
-        title: 'Ei-Ji Games Shopping'
+    Order.find({
+        user: req.user
+    }, function (err, orders) {
+        if (err) {
+            return res.write('Error!');
+        }
+        var cart;
+        orders.forEach(function (order) {
+            cart = new Cart(order.cart);
+            order.item = cart.generateArray();
+        });
+        res.render('user/profile', {
+            title: 'Ei-Ji Games Shopping',
+            orders: orders
+        });
     });
 });
 
@@ -38,7 +54,7 @@ router.post('/signup', passport.authenticate('local.signup', {
     if (req.session.oldUrl) {
         var oldUrl = req.session.oldUrl;
         req.session.oldUrl = null;
-        res.redirect(oldUrl);    
+        res.redirect(oldUrl);
     } else {
         res.redirect('/user/profile');
     }
@@ -61,7 +77,7 @@ router.post('/signin', passport.authenticate('local.signin', {
     if (req.session.oldUrl) {
         var oldUrl = req.session.oldUrl;
         req.session.oldUrl = null;
-        res.redirect(oldUrl);    
+        res.redirect(oldUrl);
     } else {
         res.redirect('/user/profile');
     }
