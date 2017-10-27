@@ -91,18 +91,18 @@ body {
     -webkit-flex: 0 0 auto;
  }
 
- #myFooter a {
+#myFooter a {
     color: #d2d1d1;
     text-decoration: none;
 }
 
- #myFooter a:hover,
- #myFooter a:focus {
+#myFooter a:hover,
+#myFooter a:focus {
      text-decoration: none;
      color: white;
  }
 
- #map-container {
+#map-container {
     height: 240px;
     width: 100%;
     margin-top: 30px;
@@ -119,4 +119,31 @@ body {
     color: #333333; font-family: 'Helvetica Neue', sans-serif; font-size: 8vw; font-weight: bold; letter-spacing: -1px;
     flex-wrap: wrap;
     font-size: 80px;
-  }
+}
+
+hr.style5 {
+    background-color: #fff;
+    border-top: 1px dashed #8c8b8b;
+}
+
+.qty {
+    float:right; 
+    font-size: 17px;
+}
+
+.qty2 {
+    font-size: 17px;
+}
+
+.logos {
+    background-color: pink; 
+    color: red;
+}
+
+#myDIV {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+}

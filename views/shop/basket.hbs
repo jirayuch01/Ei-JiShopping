@@ -1,0 +1,61 @@
+<center id="myDIV">
+    <h1>{{title}}</h1>
+    <p>Welcome to the Web shopping</p>
+</center>
+<br> 
+{{# if products }}
+    <div class="row" style="height:400px;width:105%; overflow:scroll;overflow-x:hidden;overflow-y:scroll;">
+        <div class="col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
+            <div class="list-group">
+                {{# each products }}
+                    <li class="list-group-item">
+                        <h4 class="qty">
+                            <span class="label label-warning">{{ this.qty }}</span> pieces
+                            <span class="label label-success">{{ this.price }}</span> bath.-
+                        </h4>
+                        <h4 style="qty2"><strong>{{ this.item.title }}</strong></h4>
+                        <div class="btn-group">
+                            <button class="btn btn-primary xs dropdown-toggle badge" type="button" data-toggle="dropdown">Action
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Reduce by 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Remove All</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
+            <br><p></p>
+            <strong class="qty">Total:
+                <span class="label label-danger">{{ totalQty }}</span> pieces
+                <span class="label label-danger">{{ totalPrice }}</span> bath.-
+            </strong>
+        </div>
+    </div>
+    <hr class="style5">
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
+            <button class="btn btn-primary" type="button"><i class="fa fa-check" aria-hidden="true"></i> Checkout</button>
+        </div>
+    </div>
+{{ else }}
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
+            <center>
+                <h2 style="color: red"><kbd class="logos"><i class="fa fa-times" aria-hidden="true"></i></kbd> <strong>No item in basket.</strong></h2>
+            </center>  
+        </div>
+    </div>
+{{/if}}
+<br>
+<br>
+<br>
