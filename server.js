@@ -15,7 +15,11 @@ var routes = require('./routes/index');
 var userRoutes = require('./routes/user');
 var app = express();
 
-mongoose.connect('localhost:27017/ei-jishopping');
+mongoose.connect('mongodb://localhost:27017/ei-jishopping', {useMongoClient: true});
+mongoose.connection.on('error', console.error.bind(console, 'Connection error:'));
+mongoose.connection.once('open', function (callback) {
+  console.log('Connected to MongoDB!');
+});
 
 require('./config/passport');
 

@@ -2,11 +2,62 @@ var express = require('express');
 var router = express.Router();
 var Cart = require('../models/cart');
 var Product = require('../models/product');
-var Order = require('../models/order');
+var Order = require('../models/order'); 
 
 router.get('/', function (req, res, next) {
   var successMsg = req.flash('success')[0];
-  Product.find(function (err, docs) {
+  Product.find({}).sort({ price: 'asc' }).limit(9).exec(function (err, docs) {
+    var productChunks = [];
+    var chunkSize = 3;
+    for (var i = 0; i < docs.length; i += chunkSize) {
+      productChunks.push(docs.slice(i, i + chunkSize));
+    }
+    res.render('shop/index', {
+      title: 'Ei-Ji Games Shopping',
+      products: productChunks,
+      successMsg: successMsg,
+      noMessage: !successMsg
+    });
+  });
+});
+
+router.get('/page/1', function (req, res, next) {
+  var successMsg = req.flash('success')[0];
+  Product.find({}).sort({ price: 'asc' }).limit(9).exec(function (err, docs) {
+    var productChunks = [];
+    var chunkSize = 3;
+    for (var i = 0; i < docs.length; i += chunkSize) {
+      productChunks.push(docs.slice(i, i + chunkSize));
+    }
+    res.render('shop/index', {
+      title: 'Ei-Ji Games Shopping',
+      products: productChunks,
+      successMsg: successMsg,
+      noMessage: !successMsg
+    });
+  });
+});
+
+router.get('/page/2', function (req, res, next) {
+  var successMsg = req.flash('success')[0];
+  Product.find({}).sort({ price: 'asc' }).limit(9).skip(9).exec(function (err, docs) {
+    var productChunks = [];
+    var chunkSize = 3;
+    for (var i = 0; i < docs.length; i += chunkSize) {
+      productChunks.push(docs.slice(i, i + chunkSize));
+    }
+    res.render('shop/index', {
+      title: 'Ei-Ji Games Shopping',
+      products: productChunks,
+      successMsg: successMsg,
+      noMessage: !successMsg
+    });
+  });
+});
+
+router.get('/page/3', function (req, res, next) {
+  var successMsg = req.flash('success')[0];
+  Product.find({}).sort({ price: 'asc' }).limit(9).skip(18).exec(function (err, docs) {
     var productChunks = [];
     var chunkSize = 3;
     for (var i = 0; i < docs.length; i += chunkSize) {
