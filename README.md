@@ -5,6 +5,7 @@ run use command is node start or nodemon start.
 # Page
 Homepage: https://ei-jishopping.herokuapp.com/  <br>
 Git: https://git.heroku.com/ei-jishopping.git <br>
+or https://github.com/jirayuch01/Ei-JiShopping <br>
 mongoDB: https://mlab.com/databases/ei-jishopping
 
 # Reference
