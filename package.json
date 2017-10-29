@@ -1,10 +1,10 @@
 {
   "name": "ei-jishopping",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./index"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
@@ -27,18 +27,7 @@
     "serve-favicon": "^2.4.5",
     "stripe": "^5.2.0"
   },
-  "description": "Ei-Ji Game Shopping",
-  "main": "server.js",
-  "devDependencies": {
-    "nodemon": "^1.12.1"
-  },
-  "engines": {
-    "node": "5.2.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jirayuch01/Ei-JiShopping.git"
-  },
+  "description": "Project with NodeJS / Express / MongoDB",
   "keywords": [
     "express",
     "game",
@@ -46,6 +35,16 @@
     "mongoDB",
     "heroku"
   ],
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "engines": {
+    "node": "8.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jirayuch01/Ei-JiShopping.git"
+  },
   "author": "Jirayu Chinnawong",
   "license": "ISC",
   "bugs": {

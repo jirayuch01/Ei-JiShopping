@@ -15,7 +15,8 @@ var routes = require('./routes/index');
 var userRoutes = require('./routes/user');
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017/ei-jishopping', {useMongoClient: true});
+//mongoose.connect('mongodb://localhost:27017/ei-jishopping', {useMongoClient: true});
+mongoose.connect('mongodb://nanoha1412:Jirayu1412@ds133290.mlab.com:33290/ei-jishopping', {useMongoClient: true});
 mongoose.connection.on('error', console.error.bind(console, 'Connection error:'));
 mongoose.connection.once('open', function (callback) {
   console.log('Connected to MongoDB!');
