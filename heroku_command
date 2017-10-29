@@ -1,0 +1,16 @@
+https://dashboard.heroku.com/apps
+heroku --version
+cd folder
+heroku login
+git init
+heroku create name
+git status
+git remote
+git remote -v
+git status
+git add .
+
+heroku local web
+up to git
+up to heroku
+heroku open
