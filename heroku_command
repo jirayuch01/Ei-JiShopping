@@ -9,8 +9,10 @@ git remote
 git remote -v
 git status
 git add .
-
-heroku local web
+git status
+git commit -m "...."
+git push heroku master
 up to git
 up to heroku
+heroku local web
 heroku open
